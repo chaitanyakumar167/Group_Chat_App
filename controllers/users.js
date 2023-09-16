@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken')
 
 exports.createUser = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { name, email,number, password } = req.body;
 
     const user = await User.findAll({ where: { email } });
 
@@ -20,6 +20,7 @@ exports.createUser = async (req, res) => {
         await User.create({
           name: name,
           email: email,
+          number:number,
           password: hash,
         });
       }
