@@ -51,7 +51,7 @@ exports.loginUser = async (req,res) =>{
           throw new Error('something went wrong')
         }
         if(result === true){
-          return res.status(200).json({message:'User login successfull',success:true,token:generateAccessToken(user[0].id)})
+          return res.status(200).json({message:'User login successfull',success:true,token:generateAccessToken(user[0].id),username:user[0].name})
         }else{
           return res.status(401).json({message:'User not authorized',success:false,})
         }
